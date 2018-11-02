@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Registrator>
+	<Rows> 
+		<Row Height="10"/>
+		<Row Height="70"/>
+		<Row Height="10"/>
+		<Row Height="10"/>
+	</Rows>
+	<Cols>
+		<Col Width="10"/>
+		<Col Width="80"/>
+		<Col Width="10"/>
+	</Cols>
+	
+	<Cells>
+		<Cell P="0" Span="2"> 
+			<Image>
+				C:\Users\ipigp\Desktop\bazby.jpg
+			</Image> 
+		</Cell>
+		<Cell P="2"> 
+			<Logo>
+				C:\Users\ipigp\Desktop\bazby.jpg
+			</Logo> 
+		</Cell>
+		<Cell P="4"> 
+			<Pole/> 
+		</Cell>
+		<Cell P="8"> 
+			<Clocks FMT="dd.MM.yy  HH:mm" Font="Arial" Size="11" Bold="0" Italic="0" Color="Red" BGColor=""/> 
+		</Cell>
+		<Cell P="10"> 
+			<Text Font="Areal" Bold="1" Italic="0" Color="blue" BGColor="">
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen bookContent
+			</Text> 
+		</Cell>
+	</Cells>
+	
+	<ButtonsPole Cols="3" /> 
+	
+	<Buttons>
+		<Button Id="A" Font="Arial" Size="18" Bold="0" Italic="1" Color="" BGColor="yellowGreen" Image=""> Action1 </Button>
+		<Button Id="B" Font="" Bold="1" Italic="0" Color="Red" BGColor="" Image=""> Action2 </Button>
+		<Button Id="C" Font="" Bold="0" Italic="0" Color="" BGColor="" Image=""> Action3 </Button>
+		<Button Id="D" Font="" Bold="1" Italic="1" Color="" BGColor="" Image=""> Action4 </Button>
+	</Buttons>
+</Registrator>
