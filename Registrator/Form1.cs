@@ -14,6 +14,7 @@ namespace Registrator
     public partial class Form1 : Form
     {
         string Path = @"C:\Users\ipigp\Desktop\Registrator.xml";
+        string FMT = string.Empty;
 
         public Form1()
         {
@@ -46,6 +47,8 @@ namespace Registrator
                     case WType.Clocks:
                         L = ww.Param as Label;
                         L.Text = DateTime.Now.ToString((ww.Context as string));
+                        FMT = ww.Context as string;
+                        L.Name = "CLC";
                         // перечитывать значение
                         timer1.Interval = 1000;
                         timer1.Tick += Timer1_Tick;
@@ -78,7 +81,8 @@ namespace Registrator
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
+            Label L = (Label)Controls.Find("CLC", true)[0];
+            L.Text = DateTime.Now.ToString(FMT);
         }
 
         private TableLayoutPanel LoadPole(XDocument doc, ButtonsPole bP)

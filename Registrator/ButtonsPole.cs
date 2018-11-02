@@ -45,7 +45,7 @@ namespace Registrator
                                     | (italic ? FontStyle.Italic : FontStyle.Regular));
             FC = (fC != string.Empty) ? Color.FromName(fC) : SystemColors.ControlText;
             BC = (bC != string.Empty) ? Color.FromName(bC) : SystemColors.Control;
-            I = ((imagepath != string.Empty) && (File.Exists(imagepath))) ? Image.FromFile(imagepath) : null;
+            I = ((imagepath != string.Empty) && File.Exists(imagepath)) ? Image.FromFile(imagepath) : null;
         }
     }
 }
