@@ -367,6 +367,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Pasport";
             this.Size = new System.Drawing.Size(240, 225);
+            this.Load += new System.EventHandler(this.Pasport_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

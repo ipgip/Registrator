@@ -12,6 +12,8 @@ namespace Registrator
 {
     public partial class Pasport : UserControl
     {
+        Control F;
+
         public Pasport()
         {
             InitializeComponent();
@@ -53,7 +55,7 @@ namespace Registrator
         /// <param name="e"></param>
         private void Button1_Click(object sender, EventArgs e)
         {
-
+            (F as TextBox).Text = (sender as Button).Text;
         }
 
         /// <summary>
@@ -68,7 +70,8 @@ namespace Registrator
             {
                 t.Text = t.Text.Substring(0, 1);
             }
-            (sender as Control).Parent.GetNextControl(t, true).Focus();
+            F = (sender as Control).Parent.GetNextControl(t, true);
+            F.Focus();
         }
 
         /// <summary>
@@ -84,6 +87,11 @@ namespace Registrator
                 t.Text = t.Text.Substring(0, 1);
             }
             tableLayoutPanel2.Enabled = false;
+        }
+
+        private void Pasport_Load(object sender, EventArgs e)
+        {
+            F = textBox1;
         }
     }
 }
