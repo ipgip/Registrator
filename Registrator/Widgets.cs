@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace Registrator
 {
-    public enum WType { None, Clocks, Logo, Pole, Image, Text }
+    public enum WType { None, Clocks, Logo, Pole, Image, Text, Pasport }
 
     internal class Widgets
     {
@@ -27,6 +27,11 @@ namespace Registrator
                 {
                     switch (el1.Name.LocalName)
                     {
+                        case "Pasport":
+                            t = WType.Pasport;
+                            Par = null;
+                            Cont = null;
+                            break;
                         case "Logo":
                             t = WType.Logo;
                             Par = new PictureBox

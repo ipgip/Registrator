@@ -66,6 +66,13 @@ namespace Registrator
                         L = ww.Param as Label;
                         L.Text = ww.Context as string;
                         break;
+                    case WType.Pasport:
+                        L = new Panel
+                        {
+                            Dock=DockStyle.Fill
+                        };
+                        //L.Controls.Add(new Pasport());
+                        break;
                     case WType.None:
                     default:
                         break;
