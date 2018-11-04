@@ -26,7 +26,33 @@ namespace Registrator
         /// <param name="e"></param>
         private void EnterBTN_Click(object sender, EventArgs e)
         {
+            Form1.Send(
+                 textBox1.Text
+                + textBox2.Text
+                + textBox3.Text
+                + textBox4.Text
+                + textBox5.Text
+                + textBox6.Text
+                + textBox7.Text
+                + textBox8.Text
+                + textBox9.Text
+                + textBox10.Text);
+            Clear();
+            Visability(true);
+        }
 
+        private void Clear()
+        {
+            textBox1.Text =
+            textBox2.Text =
+            textBox3.Text =
+            textBox4.Text =
+            textBox5.Text =
+            textBox6.Text =
+            textBox7.Text =
+            textBox8.Text =
+            textBox9.Text =
+            textBox10.Text = string.Empty;
         }
 
         /// <summary>
@@ -36,16 +62,23 @@ namespace Registrator
         /// <param name="e"></param>
         private void BSBTN_Click(object sender, EventArgs e)
         {
-            TextBox t = sender as TextBox;
-            if (t.TextLength > 0)
+            if (F != null)
             {
-                t.Text = string.Empty;
+                if ((F as TextBox).TextLength > 0)
+                {
+                    F.Text = string.Empty;
+                    //F = F.Parent.GetNextControl(F, false)??textBox1;
+                    Visability(true);
+                }
+                else
+                {
+                    F = F.Parent.GetNextControl(F, false);
+                    F.Text = string.Empty;
+                    F = F.Parent.GetNextControl(F, false);
+                    Visability(true);
+                }
             }
-            else
-            {
-                t.Parent.GetNextControl(t, false).Focus();
-                t.Text = string.Empty;
-            }
+            EnterBTN.Enabled = (textBox10.TextLength >= 1);
         }
 
         /// <summary>
@@ -69,9 +102,9 @@ namespace Registrator
             if (t.TextLength >= 1)
             {
                 t.Text = t.Text.Substring(0, 1);
+                EnterBTN.Enabled = (textBox10.TextLength >= 1);
             }
             F = (sender as Control).Parent.GetNextControl(t, true);
-            F.Focus();
         }
 
         /// <summary>
@@ -85,8 +118,24 @@ namespace Registrator
             if (t.TextLength >= 1)
             {
                 t.Text = t.Text.Substring(0, 1);
+                EnterBTN.Enabled = (textBox10.TextLength >= 1);
             }
-            tableLayoutPanel2.Enabled = false;
+            Visability(false);
+            //tableLayoutPanel2.Enabled = false;
+        }
+
+        private void Visability(bool V)
+        {
+            button1.Enabled =
+            button2.Enabled =
+            button3.Enabled =
+            button4.Enabled =
+            button5.Enabled =
+            button6.Enabled =
+            button7.Enabled =
+            button8.Enabled =
+            button9.Enabled =
+            button10.Enabled = V;
         }
 
         private void Pasport_Load(object sender, EventArgs e)

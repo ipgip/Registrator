@@ -13,8 +13,12 @@ namespace Registrator
 {
     public partial class Form1 : Form
     {
-        string Path = @"C:\Users\ipigp\Desktop\Registrator.xml";
+        //string Path = @"C:\Users\ipigp\Desktop\Registrator.xml";
+        static string Path = @"Registrator.xml";
+        static XDocument doc = XDocument.Load(Path);
         string FMT = string.Empty;
+        static string Selection = string.Empty;
+        static Form1 ff;
 
         public Form1()
         {
@@ -23,19 +27,24 @@ namespace Registrator
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            XDocument doc = XDocument.Load(Path);
-            ScreenTable ST = new ScreenTable(doc);
-            ButtonsPole BP = new ButtonsPole(doc);
-            Widgets WW = new Widgets(doc);
-
-            TableLayoutPanel tp = LoadTPFromFile(ST);
-            TableLayoutPanel Pole = LoadPole(doc, BP);
-            LoadWidgets(WW, tp, Pole);
-            //tp.Controls.Add(Pole, 1, 1);
-            Controls.Add(tp);
+            ff = this;
+            Controls.Clear();
+            RenewScreen(doc, 1);
         }
 
-        private void LoadWidgets(Widgets w, TableLayoutPanel tp, TableLayoutPanel Pole)
+        private static void RenewScreen(XDocument doc, int CurrentScreen)
+        {
+            Widgets WW = new Widgets(doc, CurrentScreen);
+            ScreenTable ST = new ScreenTable(doc);
+            ButtonsPole BP = new ButtonsPole(doc);
+            TableLayoutPanel tp = LoadTPFromFile(ST);
+            TableLayoutPanel Pole = LoadPole(doc, BP);
+
+            ff.LoadWidgets(WW, tp, Pole, CurrentScreen);
+            ff.Controls.Add(tp);
+        }
+
+        private void LoadWidgets(Widgets w, TableLayoutPanel tp, TableLayoutPanel Pole, int CurrentScreen)
         {
             foreach (var ww in w.B)
             {
@@ -66,10 +75,10 @@ namespace Registrator
                         L = ww.Param as Label;
                         L.Text = ww.Context as string;
                         break;
-                    case WType.Pasport:
-                        L = new Panel
+                    case WType.Passport:
+                        L = new Pasport()
                         {
-                            Dock=DockStyle.Fill
+                            Dock = DockStyle.Fill
                         };
                         //L.Controls.Add(new Pasport());
                         break;
@@ -86,13 +95,21 @@ namespace Registrator
             }
         }
 
+        internal static void Send(string Passport)
+        {
+            MessageBox.Show($"Отправка {DateTime.Now} {Passport} {Selection}");
+            Selection = string.Empty;
+            ff.Controls.Clear();
+            RenewScreen(doc, 1);
+        }
+
         private void Timer1_Tick(object sender, EventArgs e)
         {
             Label L = (Label)Controls.Find("CLC", true)[0];
             L.Text = DateTime.Now.ToString(FMT);
         }
 
-        private TableLayoutPanel LoadPole(XDocument doc, ButtonsPole bP)
+        private static TableLayoutPanel LoadPole(XDocument doc, ButtonsPole bP)
         {
             var a = doc.Descendants("ButtonsPole").First();
             int r = Convert.ToInt32(a.Attribute("Rows")?.Value ?? "1");
@@ -119,7 +136,7 @@ namespace Registrator
                     Image = b.I
                 };
 
-                BB.Click += BB_Click;
+                BB.Click += ff.BB_Click;
 
                 P.Controls.Add(BB);
             }
@@ -145,7 +162,10 @@ namespace Registrator
         /// <param name="e"></param>
         private void BB_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"{(sender as Button).Tag}");
+            Selection = $"{(sender as Button).Tag}";
+            //MessageBox.Show($"{(sender as Button).Tag}");
+            Controls.Clear();
+            RenewScreen(doc, 2);
         }
 
         private static TableLayoutPanel LoadTPFromFile(ScreenTable ST)
