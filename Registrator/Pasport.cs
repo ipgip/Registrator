@@ -124,6 +124,10 @@ namespace Registrator
             //tableLayoutPanel2.Enabled = false;
         }
 
+        /// <summary>
+        /// работоспособность кнопок ввода
+        /// </summary>
+        /// <param name="V"></param>
         private void Visability(bool V)
         {
             button1.Enabled =
