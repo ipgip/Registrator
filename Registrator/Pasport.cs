@@ -62,7 +62,7 @@ namespace Registrator
         /// <param name="e"></param>
         private void BSBTN_Click(object sender, EventArgs e)
         {
-            if (F != null)
+            if (F.Parent.GetNextControl(F, false) != null)
             {
                 if ((F as TextBox).TextLength > 0)
                 {

@@ -73,7 +73,7 @@ namespace Registrator
                         break;
                     case WType.Text:
                         L = ww.Param as Label;
-                        L.Text = ww.Context as string;
+                        L.Text = (ww.Context as string).Trim();
                         break;
                     case WType.Passport:
                         L = new Pasport()

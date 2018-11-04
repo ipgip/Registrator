@@ -15,14 +15,8 @@
   <Screens>
     <Screen Id="1">
       <Cells>
-      <!--  <Cell P="0" Span="2">
-          <Image>
-            C:\Users\ipigp\Desktop\bazby.jpg
-          </Image>
-        </Cell> -->
         <Cell P="2">
           <Logo>
-            <!--C:\Users\ipigp\Desktop\bazby.jpg-->
             C:\Users\ipigp\Pictures\HBC Logo.png
           </Logo>
         </Cell>
@@ -41,15 +35,15 @@
     </Screen>
     <Screen Id="2">
       <Cells>
-        <Cell P="0" Span="2">
-          <Image>
-            C:\Users\ipigp\Desktop\bazby.jpg
-          </Image>
-        </Cell>
         <Cell P="2">
           <Logo>
-            C:\Users\ipigp\Desktop\bazby.jpg
+            C:\Users\ipigp\Pictures\HBC Logo.png
           </Logo>
+        </Cell>
+        <Cell P="1">
+          <Text Font="Areal" Bold="1" Italic="0" Color="blue" BGColor="">
+            Введите серию и номер паспорта
+          </Text>
         </Cell>
         <Cell P="4">
           <Passport/>
@@ -66,12 +60,12 @@
     </Screen>
   </Screens>
 
-  <ButtonsPole Cols="3" />
+  <ButtonsPole Cols="2" />
 
   <Buttons>
     <Button Id="A" Font="Arial" Size="18" Bold="0" Italic="1" Color="" BGColor="yellowGreen" Image=""> Action1 </Button>
-    <Button Id="B" Font="" Bold="1" Italic="0" Color="Red" BGColor="" Image=""> Action2 </Button>
-    <Button Id="C" Font="" Bold="0" Italic="0" Color="" BGColor="" Image=""> Action3 </Button>
-    <Button Id="D" Font="" Bold="1" Italic="1" Color="" BGColor="" Image=""> Action4 </Button>
+    <Button Id="B" Font="" Bold="1" Italic="0" Color="Red" BGColor="Green" Image=""> Action2 </Button>
+    <Button Id="C" Font="" Bold="0" Italic="0" Color="" BGColor="Yellow" Image=""> Action3 </Button>
+    <Button Id="D" Font="" Bold="1" Italic="1" Color="" BGColor="red" Image=""> Action4 </Button>
   </Buttons>
 </Registrator>

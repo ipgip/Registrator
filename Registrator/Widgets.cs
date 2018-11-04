@@ -72,6 +72,7 @@ namespace Registrator
                                     Par = new Label
                                     {
                                         Dock = DockStyle.Fill,
+                                        TextAlign=ContentAlignment.MiddleCenter,
                                         Font = new Font(
                                             el1.Attribute("Font").Value.ToString(),
                                             Convert.ToSingle(el1.Attribute("Size")?.Value ?? "11"),
