@@ -15,14 +15,15 @@
   <Screens>
     <Screen Id="1">
       <Cells>
-        <Cell P="0" Span="2">
+      <!--  <Cell P="0" Span="2">
           <Image>
             C:\Users\ipigp\Desktop\bazby.jpg
           </Image>
-        </Cell>
+        </Cell> -->
         <Cell P="2">
           <Logo>
-            C:\Users\ipigp\Desktop\bazby.jpg
+            <!--C:\Users\ipigp\Desktop\bazby.jpg-->
+            C:\Users\ipigp\Pictures\HBC Logo.png
           </Logo>
         </Cell>
         <Cell P="4">
@@ -58,7 +59,7 @@
         </Cell>
         <Cell P="10">
           <Text Font="Areal" Bold="1" Italic="0" Color="blue" BGColor="">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen bookContent
+            Нажимая кнопку ">>" Вы даёте согласие на обработку персональных данных в целях организации электронной очереди.
           </Text>
         </Cell>
       </Cells>

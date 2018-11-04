@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-public class RoundButton : Button
+public class RoundButton : Control
 {
     public Color BackColor2 { get; set; }
     public Color ButtonBorderColor { get; set; }

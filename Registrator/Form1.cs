@@ -125,15 +125,16 @@ namespace Registrator
             };
             foreach (var b in bP.B)
             {
-                Button BB = new Button
+                //Button BB = new Button
+                RoundButton BB = new RoundButton
                 {
                     Dock = DockStyle.Fill,
                     Text = b.Text,
                     Tag = b.Id,
                     Font = b.F,
                     ForeColor = b.FC,
-                    BackColor = b.BC,
-                    Image = b.I
+                    BackColor = b.BC//,
+                    //Image = b.I
                 };
 
                 BB.Click += ff.BB_Click;
@@ -162,10 +163,10 @@ namespace Registrator
         /// <param name="e"></param>
         private void BB_Click(object sender, EventArgs e)
         {
-            Selection = $"{(sender as Button).Tag}";
-            //MessageBox.Show($"{(sender as Button).Tag}");
+            Selection = $"{(sender as RoundButton).Tag}";
             Controls.Clear();
             RenewScreen(doc, 2);
+            MainTimer.Start();
         }
 
         private static TableLayoutPanel LoadTPFromFile(ScreenTable ST)
@@ -190,6 +191,14 @@ namespace Registrator
                 tp.RowStyles.Add(new RowStyle(SizeType.Percent, rr.Height));
             }
             return tp;
+        }
+
+        // таймер возврата фронта в первоачальное состояние
+        private void MainTimer_Tick(object sender, EventArgs e)
+        {
+            Controls.Clear();
+            RenewScreen(doc, 1);
+            MainTimer.Stop();
         }
     }
 }
