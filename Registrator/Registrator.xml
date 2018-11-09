@@ -65,7 +65,7 @@
   <Buttons>
     <Button Id="A" Font="Arial" Size="18" Bold="0" Italic="1" Color="" BGColor="yellowGreen" Image=""> Action1 </Button>
     <Button Id="B" Font="" Bold="1" Italic="0" Color="Red" BGColor="Green" Image=""> Action2 </Button>
-    <Button Id="C" Font="" Bold="0" Italic="0" Color="" BGColor="Yellow" Image=""> Action3 </Button>
+    <Button Id="C" Font="" Bold="0" Italic="1" Color="" BGColor="Yellow" Image=""> Action3 </Button>
     <Button Id="D" Font="" Bold="1" Italic="1" Color="" BGColor="red" Image=""> Action4 </Button>
   </Buttons>
 </Registrator>
