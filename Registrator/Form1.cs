@@ -18,6 +18,8 @@ namespace Registrator
         static XDocument doc = XDocument.Load(Path);
         string FMT = string.Empty;
         static string Selection = string.Empty;
+        static string Pasport = string.Empty;
+        static string TXT = string.Empty;
         static Form1 ff;
 
         public Form1()
@@ -65,6 +67,7 @@ namespace Registrator
                         break;
                     case WType.Pole:
                         L = Pole;
+                        L.Tag = ww.Next;
                         break;
                     case WType.Logo:
                     case WType.Image:
@@ -78,9 +81,19 @@ namespace Registrator
                     case WType.Passport:
                         L = new Pasport()
                         {
-                            Dock = DockStyle.Fill
+                            Dock = DockStyle.Fill,
+                            Tag = ww.Next
                         };
+                        (L as Pasport).PasportFinished += Form1_PasportFinished;
                         //L.Controls.Add(new Pasport());
+                        break;
+                    case WType.Keyboard:
+                        L = new KBD()
+                        {
+                            Dock = DockStyle.Fill,
+                            Tag = ww.Next
+                        };
+                        (L as KBD).Kbd_Enter += L1_Kbd_Enter;
                         break;
                     case WType.None:
                     default:
@@ -95,9 +108,31 @@ namespace Registrator
             }
         }
 
-        internal static void Send(string Passport)
+        private void Form1_PasportFinished(object sender, string e)
         {
-            MessageBox.Show($"Отправка {DateTime.Now} {Passport} {Selection}");
+            Pasport = e;
+            int NextScreen = Convert.ToInt32((sender as Control).Tag);
+            if (NextScreen == 1)
+                Send();
+            Controls.Clear();
+            RenewScreen(doc, NextScreen);
+            MainTimer.Stop();
+        }
+
+        private void L1_Kbd_Enter(object sender, string e)
+        {
+            TXT = e;
+            int NextScreen = Convert.ToInt32((sender as Control).Tag);
+            if (NextScreen == 1)
+                Send();
+            Controls.Clear();
+            RenewScreen(doc, NextScreen);
+            MainTimer.Stop();
+        }
+
+        internal static void Send()
+        {
+            MessageBox.Show($"Отправка {DateTime.Now}; {Pasport}; {TXT}; {Selection}");
             Selection = string.Empty;
             ff.Controls.Clear();
             RenewScreen(doc, 1);

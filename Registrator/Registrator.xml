@@ -21,7 +21,7 @@
           </Logo>
         </Cell>
         <Cell P="4">
-          <Pole/>
+          <Pole Next="2"/>
         </Cell>
         <Cell P="8">
           <Clocks FMT="dd.MM.yy  HH:mm" Font="Arial" Size="11" Bold="0" Italic="0" Color="Red" BGColor=""/>
@@ -42,11 +42,31 @@
         </Cell>
         <Cell P="1">
           <Text Font="Areal" Bold="1" Italic="0" Color="blue" BGColor="">
+            какое-то текстовое сообщение
+          </Text>
+        </Cell>
+        <Cell P="4">
+          <Keyboard Next="3"/>
+        </Cell>
+        <Cell P="8">
+          <Clocks FMT="dd.MM.yy  HH:mm" Font="Arial" Size="11" Bold="0" Italic="0" Color="Red" BGColor=""/>
+        </Cell>
+      </Cells>
+    </Screen>
+    <Screen Id="3">
+      <Cells>
+        <Cell P="2">
+          <Logo>
+            C:\Users\ipigp\Pictures\HBC Logo.png
+          </Logo>
+        </Cell>
+        <Cell P="1">
+          <Text Font="Areal" Bold="1" Italic="0" Color="blue" BGColor="">
             Введите серию и номер паспорта
           </Text>
         </Cell>
         <Cell P="4">
-          <Passport/>
+          <Passport Next="1"/>
         </Cell>
         <Cell P="8">
           <Clocks FMT="dd.MM.yy  HH:mm" Font="Arial" Size="11" Bold="0" Italic="0" Color="Red" BGColor=""/>

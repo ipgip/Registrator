@@ -59,6 +59,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="KBD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KBD.Designer.cs">
+      <DependentUpon>KBD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Keyboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KBD.resx">
+      <DependentUpon>KBD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Keyboard.resx">
       <DependentUpon>Keyboard.cs</DependentUpon>
@@ -118,6 +127,7 @@
   <ItemGroup>
     <Content Include="Registrator.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

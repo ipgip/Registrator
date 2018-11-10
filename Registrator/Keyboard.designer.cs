@@ -80,7 +80,7 @@
             this.button51.TabIndex = 50;
             this.button51.Text = " ";
             this.button51.UseVisualStyleBackColor = true;
-            this.button51.Click += new System.EventHandler(this.button_Click);
+            this.button51.Click += new System.EventHandler(this.Button_Click);
             // 
             // BSP
             // 
@@ -92,7 +92,7 @@
             this.BSP.TabIndex = 59;
             this.BSP.Text = "˂";
             this.BSP.UseVisualStyleBackColor = true;
-            this.BSP.Click += new System.EventHandler(this.button12_Click);
+            this.BSP.Click += new System.EventHandler(this.Button12_Click);
             // 
             // ENT
             // 
@@ -105,7 +105,7 @@
             this.ENT.TabIndex = 60;
             this.ENT.Text = "ВВОД";
             this.ENT.UseVisualStyleBackColor = true;
-            this.ENT.Click += new System.EventHandler(this.button24_Click);
+            this.ENT.Click += new System.EventHandler(this.Button24_Click);
             // 
             // Lang
             // 

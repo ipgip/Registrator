@@ -12,6 +12,8 @@ namespace Registrator
 {
     public partial class Pasport : UserControl
     {
+        public event EventHandler<string> PasportFinished;
+        
         Control F;
 
         public Pasport()
@@ -26,8 +28,8 @@ namespace Registrator
         /// <param name="e"></param>
         private void EnterBTN_Click(object sender, EventArgs e)
         {
-            Form1.Send(
-                 textBox1.Text
+            PasportFinished?.Invoke(this, 
+                textBox1.Text
                 + textBox2.Text
                 + textBox3.Text
                 + textBox4.Text

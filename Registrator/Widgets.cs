@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace Registrator
 {
-    public enum WType { None, Clocks, Logo, Pole, Image, Text, Passport }
+    public enum WType { None, Clocks, Logo, Pole, Image, Text, Passport, Keyboard}
 
     internal class Widgets
     {
@@ -27,15 +27,23 @@ namespace Registrator
                         WType t;
                         object Par;
                         object Cont;
+                        int Next = 0;
 
                         foreach (var el1 in el.Elements())
                         {
                             switch (el1.Name.LocalName)
                             {
+                                case "Keyboard":
+                                    t = WType.Keyboard;
+                                    Par = null;
+                                    Cont = null;
+                                    Next = Convert.ToInt32(el1.Attribute("Next")?.Value??"0");
+                                    break;
                                 case "Passport":
                                     t = WType.Passport;
                                     Par = null;
                                     Cont = null;
+                                    Next = Convert.ToInt32(el1.Attribute("Next")?.Value ?? "0");
                                     break;
                                 case "Logo":
                                     t = WType.Logo;
@@ -50,6 +58,7 @@ namespace Registrator
                                     t = WType.Pole;
                                     Par = null;
                                     Cont = null;
+                                    Next = Convert.ToInt32(el1.Attribute("Next")?.Value ?? "0");
                                     break;
                                 case "Clocks":
                                     t = WType.Clocks;
@@ -96,9 +105,10 @@ namespace Registrator
                                     t = WType.None;
                                     Par = null;
                                     Cont = null;
+                                    Next = 0;
                                     break;
                             }
-                            B.Add(new ScreenWidgets(Pos, Span, t, Par, Cont));
+                            B.Add(new ScreenWidgets(Pos, Span, t, Par, Cont, Next));
                         }
                     }
                 }
@@ -113,14 +123,16 @@ namespace Registrator
         public WType T;
         public object Param;
         public object Context;
+        public int Next;
 
-        public ScreenWidgets(int pos, int span, WType t, object par, object cont)
+        public ScreenWidgets(int pos, int span, WType t, object par, object cont, int next)
         {
             Position = pos;
             Span = span;
             T = t;
             Param = par;
             Context = cont;
+            Next = next;
         }
     }
 }

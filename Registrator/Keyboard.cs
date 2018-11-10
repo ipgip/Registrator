@@ -18,7 +18,7 @@ namespace Registrator
 
         char[][] kbd = new char[][]{ new char[] { '1','2','3','4','5','6','7','8','9','0','Ё','Й','Ц','У','К','Е','Н','Г','Ш','Щ','З','Х','Ф','Ы','В','А','П','Р','О','Л','Д','Ж','Э','Я','Ч','С','М','И','Т','Ь','Б','Ю','.','-' },
                                      new char[] { '1','2','3','4','5','6','7','8','9','0','_','Q','W','E','R','T','Y','U','I','O','P','*','A','S','D','F','G','H','J','K','L','#','%','Z','X','C','V','B','N','M','[',']','.','@' } };
-        bool LanguageSelector = false; // Латинский
+        bool LanguageSelector = true; // кирилица
 
         #region События
         [Category("IGP"), Description("Нажата клавиша")]
@@ -48,17 +48,17 @@ namespace Registrator
             //button36.Text = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
         }
 
-        private void button_Click(object sender, EventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
             _Click?.Invoke(this, new KeyArgs((sender as Button).Text[0]));
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void Button12_Click(object sender, EventArgs e)
         {
             _BSP?.Invoke(this, new KeyArgs(' '));
         }
 
-        private void button24_Click(object sender, EventArgs e)
+        private void Button24_Click(object sender, EventArgs e)
         {
             _Ent?.Invoke(this, new KeyArgs(' '));
         }
@@ -80,7 +80,7 @@ namespace Registrator
                     Text = kbd[LanguageSelector ? 0 : 1][i].ToString(),
                     Dock = DockStyle.Fill
                 };
-                b.Click += button_Click;
+                b.Click += Button_Click;
                 tableLayoutPanel1.Controls.Add(b, i % 11, i / 11);
             }
             Lang.Text = LanguageSelector ? "RUS" : "LAT";
